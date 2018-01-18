@@ -7,9 +7,6 @@ import re
 import pandas as pd
 import numpy as np
 
-
-
-
 def data_from_range(rngString,wb):
 
     WsAsString,RngAsString = splitExcelRange(rngString)
@@ -64,15 +61,6 @@ def data_to_range(DataAsDataframe,rngString, wb):
                 ws.cell(row = y, column = x).value = data.iloc[YIndex,XIndex]
     except:
         ws.cell(row = row, column = col).value = data
-        
-    
-            
-
-
-
-
-    
-
 
 ####################################
 #Helper Functions
@@ -91,19 +79,12 @@ def splitExcelRange(text):
     sheet,rng = text.split('!')
     
     sheet = re.sub("'","", sheet)
-    
-#    
-#    if sheet.startswith("'"):        
-#        sheet = sheet[1:len(sheet)]
-#    if sheet.endswith("'"):
-#        rng = rng[:-1]
 
     return(sheet,rng)
     
             
 def Get_Ranges(RangeAsString):
     rng = RangeAsString
-    
     
     #in case there is only one range being given
     try:
@@ -134,8 +115,7 @@ def col_letter_to_number(ColLetter):
         SetNum = alphabet.index(Set) + 1
         SetNum = SetNum * 26
         
-        Letter = letter[1]
-        
+        Letter = letter[1]        
         
         ColNum = alphabet.index(Letter) + 1
                                
