@@ -2,8 +2,6 @@
 from tkinter import *
 from tkinter import filedialog
 
-
-
 import zipfile
 import os
 import shutil
@@ -14,11 +12,6 @@ import openpyxl
 from OpenPyXLHelperFunctions import data_from_range, data_to_range
 
 import pandas as pd
-
-
-
-
-
 #############################Functions
 
 def do():
@@ -85,20 +78,14 @@ def CopyFiles(mathFile, fileDir):
         tgtBook.active = 0
         tgtBook.save('DGE - ' + file)
     print('You are all done copying')
-
-
 ##############################
 
 root = Tk()
 root.geometry("400x400+0+0")
 root.title('Main Window')
 
-
 mathFile = StringVar()
 fileDir = StringVar()
-
-
-
 
 f1 = Frame(root)
 f1.pack()
@@ -109,20 +96,12 @@ mathFileLabel.grid(row =0, column = 0)
 mathFileEntry = Entry(f1, textvariable = mathFile)
 mathFileEntry.grid(row = 0, column = 1)
 
-
 ############ get the file directory
 
 fileDirButton = Button(f1, command = lambda: get_file_dir(), text = "Let's figure out where the files are located")
 fileDirButton.grid(row = 1, column = 0,columnspan = 2, sticky=E+W)
-
-
 ###########################################
-
-
 finalButton = Button(f1, text = 'Press Me When you are done', command = lambda: do())
 finalButton.grid(row = 10,column = 0)
-
-
-
 
 root.mainloop()
